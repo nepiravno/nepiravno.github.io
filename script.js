@@ -1,19 +1,20 @@
 'use strict'
 
-let menu = {
-    width: 200,
-    height: 300,
-    title: 'My menu',
-};
-
-multiplyNumeric(menu);
-
-function multiplyNumeric(obj) {
-    for (let key in obj) {
-        if (typeof obj[key] == 'number') {
-            obj[key] *= 2;
-        }
+function Calculator() {
+    this.read = function() {
+        this.num1 = +prompt('Enter the first number', '');
+        this.num2 = +prompt('Enter the second number', '');
+    };
+    this.sum = function() {
+        return this.num1 + this.num2;
+    };
+    this.mul = function() {
+        return this.num1 * this.num2;
     }
 }
 
-console.log(menu);
+let calculator = new Calculator();
+calculator.read();
+
+alert( "Sum=" + calculator.sum() );
+alert( "Mul=" + calculator.mul() );
