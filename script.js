@@ -1,20 +1,15 @@
 'use strict'
 
-function Calculator() {
+function Accumulator(startingValue) {
+    this.value = startingValue;
     this.read = function() {
-        this.num1 = +prompt('Enter the first number', '');
-        this.num2 = +prompt('Enter the second number', '');
-    };
-    this.sum = function() {
-        return this.num1 + this.num2;
-    };
-    this.mul = function() {
-        return this.num1 * this.num2;
+        this.value += +prompt('Enter the number', '');
     }
 }
 
-let calculator = new Calculator();
-calculator.read();
+let accumulator = new Accumulator(5); // начальное значение 1
 
-alert( "Sum=" + calculator.sum() );
-alert( "Mul=" + calculator.mul() );
+accumulator.read(); // прибавит ввод prompt к текущему значению
+accumulator.read(); // прибавит ввод prompt к текущему значению
+
+alert(accumulator.value);
