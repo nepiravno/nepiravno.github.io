@@ -1,19 +1,17 @@
 'use strict';
 
-let menu = {
-    width: 200,
-    height: 300,
-    title: 'My menu'
-};
+let num;
 
-multiplyNumeric(menu);
+function readNumber() {
+    do {
+        num = prompt('Enter your number', '');
+    } while ( !isFinite(num) )
 
-function multiplyNumeric(obj) {
-    for (let key in obj) {
-        if ( typeof obj[key] == 'number' ) {
-            obj[key] *= 2;
-        }
+    if ( num === '' || num === null) {
+        return null;
     }
+
+    return +num;
 }
 
-console.log(menu);
+console.log( readNumber() );
