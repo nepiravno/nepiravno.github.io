@@ -1,17 +1,11 @@
 'use strict';
 
-let num;
-
-function readNumber() {
-    do {
-        num = prompt('Enter your number', '');
-    } while ( !isFinite(num) )
-
-    if ( num === '' || num === null) {
-        return null;
-    }
-
-    return +num;
+function random(min, max) {
+    return min + Math.random() * (max - min);
 }
 
-console.log( readNumber() );
+console.log( random(1, 5) );
+console.log( random(1, 5) );
+console.log( random(1, 5) );
+console.log( random(1, 5) );
+console.log( random(1, 5) );
