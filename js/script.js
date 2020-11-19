@@ -1,17 +1,9 @@
 'use strict';
 
-let num;
-
-function readNumber() {
-    do {
-        num = prompt('Enter your number', '');
-    } while ( !isFinite(num) )
-
-    if ( num === '' || num === null) {
-        return null;
-    }
-
-    return +num;
+function ucFirst(str) {
+    if (!str) return str;
+    
+    return str = str[0].toUpperCase() + str.slice(1);
 }
 
-console.log( readNumber() );
+console.log( ucFirst('vasil') );
