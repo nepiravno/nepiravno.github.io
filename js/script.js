@@ -1,11 +1,11 @@
 'use strict';
 
-function checkSpam(str) {
-    str = str.toLowerCase();
+function truncate(str, maxlength) {
+    if ( str.length > maxlength ) {
+        return str = str.slice(0, maxlength - 1) + '...';
+    }
 
-    return str.includes('xxx') || str.includes('viagra');
+    return str;
 }
 
-console.log( checkSpam('buy ViAgRA now') );
-console.log( checkSpam('free xxxxx') );
-console.log( checkSpam("innocent rabbit") );
+console.log( truncate('Всем привет!', 20) );
