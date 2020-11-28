@@ -1,11 +1,20 @@
 'use strict';
 
-function truncate(str, maxlength) {
-    if ( str.length > maxlength ) {
-        return str = str.slice(0, maxlength - 1) + '...';
-    }
+let styles = ['Jazz', 'Blues'];
+console.log( styles );
 
-    return str;
+styles.push('Rock\'n\'Roll');
+console.log( styles );
+
+if ( !(styles.length % 2) ) {
+  styles[styles.length / 2] = 'Classic';
+  console.log( styles );
+} else {
+  styles[Math.floor(styles.length / 2)] = 'Classic';
+  console.log( styles );
 }
 
-console.log( truncate('Всем привет!', 20) );
+console.log( styles.shift() );
+
+styles.unshift('Rap', 'Reggae');
+console.log( styles );
