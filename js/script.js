@@ -1,20 +1,27 @@
 'use strict';
 
-let styles = ['Jazz', 'Blues'];
-console.log( styles );
+let arrNumSum = [];
 
-styles.push('Rock\'n\'Roll');
-console.log( styles );
+let sumInput = () => {
+  let userNumber;
 
-if ( !(styles.length % 2) ) {
-  styles[styles.length / 2] = 'Classic';
-  console.log( styles );
-} else {
-  styles[Math.floor(styles.length / 2)] = 'Classic';
-  console.log( styles );
-}
+  while (true) {
+    userNumber = prompt('Enter your number', '');
 
-console.log( styles.shift() );
+    if (userNumber === '' ||
+        userNumber === null ||
+        !isFinite(userNumber)) break;
 
-styles.unshift('Rap', 'Reggae');
-console.log( styles );
+    arrNumSum.push(+userNumber);
+  }
+  
+  let sum = 0;
+
+  for (let item of arrNumSum) {
+    sum += item;
+  }
+
+  return sum;
+};
+
+console.log( sumInput() );
