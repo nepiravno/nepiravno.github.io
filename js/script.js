@@ -1,27 +1,14 @@
 'use strict';
 
-let arrNumSum = [];
+let getMaxSubSum = (arr) => {
+  let maxSum = 0;
+  let partialSum = 0;
 
-let sumInput = () => {
-  let userNumber;
-
-  while (true) {
-    userNumber = prompt('Enter your number', '');
-
-    if (userNumber === '' ||
-        userNumber === null ||
-        !isFinite(userNumber)) break;
-
-    arrNumSum.push(+userNumber);
-  }
-  
-  let sum = 0;
-
-  for (let item of arrNumSum) {
-    sum += item;
+  for (let item of arr) {
+    partialSum += item;
+    maxSum = Math.max(maxSum, partialSum);
+    if (partialSum < 0) partialSum = 0;
   }
 
-  return sum;
-};
-
-console.log( sumInput() );
+  return maxSum;
+}
