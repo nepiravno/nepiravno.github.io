@@ -2,12 +2,13 @@
 
 let arr = [5, 3, 8, 1];
 
-let filterRange = (arr, a, b) => {
-  return arr.filter( item => 
-         a <= item && item < b);
+function filterRangeInPlace(arr, a, b) {
+  for (let i = 0; i < arr.length; i++) {
+    if ( a <= arr[i] && arr[i] <= b ) continue;
+    arr.splice(i, 1);
+  }
 }
 
-let filtered = filterRange(arr, 1, 4);
+filterRangeInPlace(arr, 1, 4);
 
-console.log(filtered);
 console.log(arr);
