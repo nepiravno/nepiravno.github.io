@@ -1,14 +1,17 @@
 'use strict';
 
-let getMaxSubSum = (arr) => {
-  let maxSum = 0;
-  let partialSum = 0;
+let camelize = (str) => {
+  let arr = str.split('');
 
-  for (let item of arr) {
-    partialSum += item;
-    maxSum = Math.max(maxSum, partialSum);
-    if (partialSum < 0) partialSum = 0;
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i] === '-') {
+      arr.splice(i, 2, arr[i+1].toUpperCase());
+    }
   }
 
-  return maxSum;
+  return str = arr.join('');
 }
+
+console.log( camelize("background-color") ); 
+console.log( camelize("list-style-image") );
+console.log( camelize("-webkit-transition") );
