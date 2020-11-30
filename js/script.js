@@ -1,14 +1,18 @@
 'use strict';
 
-let arr = [5, 3, 8, 1];
+let arr = ["HTML", "JavaScript", "CSS"];
 
-function filterRangeInPlace(arr, a, b) {
-  for (let i = 0; i < arr.length; i++) {
-    if ( a <= arr[i] && arr[i] <= b ) continue;
-    arr.splice(i, 1);
-  }
-}
+let copySorted = (arr) => {
+  let copyArr = arr.slice();
 
-filterRangeInPlace(arr, 1, 4);
+  return copyArr.sort( (a, b) => {
+    if (a > b) return 1;льше второго
+    if (a == b) return 0;
+    if (a < b) return -1;
+  } );
+};
 
-console.log(arr);
+let sorted = copySorted(arr);
+
+alert( sorted ); // CSS, HTML, JavaScript
+alert( arr ); // HTML, JavaScript, CSS
