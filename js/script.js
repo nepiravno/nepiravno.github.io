@@ -1,15 +1,11 @@
 'use strict';
 
 let camelize = (str) => {
-  let arr = str.split('');
-
-  for (let i = 0; i < arr.length; i++) {
-    if (arr[i] === '-') {
-      arr.splice(i, 2, arr[i+1].toUpperCase());
-    }
-  }
-
-  return str = arr.join('');
+  return str
+  .split('-')
+  .map((word, index) => 
+  index == 0 ? word : word[0].toUpperCase() + word.slice(1))
+  .join('');
 }
 
 console.log( camelize("background-color") ); 
