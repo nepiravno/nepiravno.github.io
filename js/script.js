@@ -1,18 +1,35 @@
 'use strict';
 
-let arr = ["HTML", "JavaScript", "CSS"];
+function Calculator() {
+  this.methods = {
+    '+': (a, b) => a + b,
+    '-': (a, b) => a - b
+  };
 
-let copySorted = (arr) => {
-  let copyArr = arr.slice();
+  this.calculate = function(str) {
+    let split = str.split(' ');
 
-  return copyArr.sort( (a, b) => {
-    if (a > b) return 1;льше второго
-    if (a == b) return 0;
-    if (a < b) return -1;
-  } );
+    let a = split[0];
+    let op = split[1];
+    let b = split[2];
+
+    if ( !this.methods[op] || isNaN(a) || isNaN(b) ) {
+      return NaN;
+    }
+
+    return this.methods[op](a, b);
+  };
+
+  this.addMethod = function(name, func) {
+    this.methods[name] = func;
+  }
 };
 
-let sorted = copySorted(arr);
 
-alert( sorted ); // CSS, HTML, JavaScript
-alert( arr ); // HTML, JavaScript, CSS
+let powerCalc = new Calculator;
+powerCalc.addMethod("*", (a, b) => a * b);
+powerCalc.addMethod("/", (a, b) => a / b);
+powerCalc.addMethod("**", (a, b) => a ** b);
+
+let result = powerCalc.calculate("2 ** 3");
+alert( result ); // 8
