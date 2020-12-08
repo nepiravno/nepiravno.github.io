@@ -1,20 +1,19 @@
 'use strict';
 
-let getAverageAge = (users) => {
-  // let sum = 0;
-  // for (let i= 0; i < users.length; i++) {
-  //   sum += users[i].age;
-  // }
+function unique(arr) {
+  let unique = [];
 
-  // return sum / users.length;
-  return users.reduce( (sum, item) => 
-         sum + item.age, 0 ) / users.length;
-};
+  for ( let item of arr ) {
+    if ( unique.includes(item) ) continue;
 
-let vasya = { name: "Вася", age: 25 };
-let petya = { name: "Петя", age: 30 };
-let masha = { name: "Маша", age: 29 };
+    unique.push(item);
+  } 
 
-let arr = [ vasya, petya, masha ];
+  return unique;
+}
 
-alert( getAverageAge(arr) ); // (25 + 30 + 29) / 3 = 28
+let strings = ["кришна", "кришна", "харе", "харе",
+  "харе", "харе", "кришна", "кришна", ":-O"
+];
+
+alert( unique(strings) ); // кришна, харе, :-O
