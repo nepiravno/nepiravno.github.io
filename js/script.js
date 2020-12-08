@@ -1,19 +1,18 @@
 'use strict';
 
 function unique(arr) {
-  let unique = [];
+  // let set = new Set();
 
-  for ( let item of arr ) {
-    if ( unique.includes(item) ) continue;
+  // for ( let item of arr ) {
+  //   set.add(item);
+  // }
 
-    unique.push(item);
-  } 
-
-  return unique;
+  // return Array.from(set);
+  return Array.from(new Set(arr));
 }
 
-let strings = ["кришна", "кришна", "харе", "харе",
-  "харе", "харе", "кришна", "кришна", ":-O"
+let values = ["Hare", "Krishna", "Hare", "Krishna",
+  "Krishna", "Krishna", "Hare", "Hare", ":-O"
 ];
 
-alert( unique(strings) ); // кришна, харе, :-O
+alert( unique(values) ); // Hare,Krishna,:-O
