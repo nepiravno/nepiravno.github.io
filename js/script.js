@@ -1,18 +1,33 @@
 'use strict';
 
-function unique(arr) {
+let arr = ["nap", "teachers", "cheaters", "PAN", "ear", "era", "hectares"];
+
+let aclean = arr => {
   // let set = new Set();
+  // let currentSize = 0;
+  // let resultArr = [];
 
   // for ( let item of arr ) {
-  //   set.add(item);
+  //   currentSize = set.size;
+  //   set.add( item.split('').sort().join('').toLowerCase() );
+
+  //   if ( set.size > currentSize ) {
+  //     resultArr.push(item);
+  //   }
   // }
 
-  // return Array.from(set);
-  return Array.from(new Set(arr));
-}
+  // return resultArr;
+  let map = new Map();
 
-let values = ["Hare", "Krishna", "Hare", "Krishna",
-  "Krishna", "Krishna", "Hare", "Hare", ":-O"
-];
+  for ( let item of arr ) {
+    let sorted = item.toLowerCase().split('').sort().join('');
+    map.set(sorted, item);
+  }
 
-alert( unique(values) ); // Hare,Krishna,:-O
+  return Array.from(map.values());
+};
+
+
+
+alert( aclean(arr) ); 
+// "nap,teachers,ear" or "PAN,cheaters,era"
